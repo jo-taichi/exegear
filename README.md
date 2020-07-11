@@ -1,24 +1,29 @@
-# README
+# Exegear DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null:false|
+### Association
+- has_many :exercises
 
-* Ruby version
 
-* System dependencies
+## exercisesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|workout|string|null: false|
+|weight|integer||
+|rep|integer||
+|memo|text||
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<!-- ※workout:種目 -->
+<!-- ※weight:重さ kg -->
+<!-- ※rep:回数 -->
+<!-- ※memo:メモ -->
